@@ -32,10 +32,10 @@ for index, row in df.iterrows():
     # Create the canvas
     canvas = Image.new('RGBA', (500, 500), (0, 0, 0, 0))
 
-    # Calculate the position for the bottom-left corner
-    bottom_left_x = 0
-    bottom_left_y = canvas.height - image.height
-    position = (bottom_left_x, bottom_left_y)
+    # Calculate the position for the center-left alignment
+    center_left_x = 0
+    center_left_y = (canvas.height - image.height) // 2
+    position = (center_left_x, center_left_y)
 
     canvas.paste(image, position, mask=image)
 
