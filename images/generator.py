@@ -15,7 +15,10 @@ for index, row in df.iterrows():
 
     canvas = Image.new('RGBA', (500, 500), (0, 0, 0, 0))
 
-    position = (0, 0)
+    # Calculate the center position dynamically
+    center_x = (canvas.width - image.width) // 2
+    center_y = (canvas.height - image.height) // 2
+    position = (center_x, center_y)
 
     canvas.paste(image, position, mask=image)
 
@@ -24,3 +27,4 @@ for index, row in df.iterrows():
     print(f"Image file {file_name} created successfully.")
 
 print("All image files created successfully.")
+
