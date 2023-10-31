@@ -1,7 +1,6 @@
 import requests
 import json
 import pandas as pd
-from PIL import Image
 import io
 
 url = "https://api-gateway.skymavis.com/origins/v2/community/items"
@@ -67,21 +66,3 @@ parsed_data = {
 df = pd.DataFrame(parsed_data)
 print(df)
 df.to_csv("Erc1155_info.csv", index=False)
-
-for i, image_url in enumerate(image_url_list):
-    id_value = id_list[i]
-    file_name = f"{id_value}.png"
-
-    response = requests.get(image_url)
-    image = Image.open(io.BytesIO(response.content))
-
-    canvas = Image.new('RGBA', (500, 500), (0, 0, 0, 0))
-
-    center_y = (canvas.height - image.height) // 2
-    position = (0, center_y)
-
-    canvas.paste(image, position, mask=image)
-
-    canvas.save(file_name)
-
-print("Image files created successfully.")
