@@ -4,8 +4,10 @@ import io
 import pandas as pd
 import os
 
+# Directory to store cached images
 cache_directory = "image_cache"
 
+# Create the cache directory if it doesn't exist
 os.makedirs(cache_directory, exist_ok=True)
 
 df = pd.read_csv("Erc1155_info.csv")
@@ -27,8 +29,14 @@ for index, row in df.iterrows():
         image = Image.open(file_path)
         print(f"Image file {file_name} loaded from cache.")
 
+    # Create the canvas
     canvas = Image.new('RGBA', (500, 500), (0, 0, 0, 0))
-    position = (0, 0)
+
+    # Calculate the position for the bottom-left corner
+    bottom_left_x = 0
+    bottom_left_y = canvas.height - image.height
+    position = (bottom_left_x, bottom_left_y)
+
     canvas.paste(image, position, mask=image)
 
     canvas.save(file_name)
