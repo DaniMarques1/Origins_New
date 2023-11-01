@@ -31,7 +31,7 @@ for index, row in df.iterrows():
             print(f"Image file {file_name} loaded from cache.")
 
         # Create the canvas
-        canvas = Image.new('RGBA', (200, 300), (0, 0, 0, 0))
+        canvas = Image.new('RGBA', (200, 250), (0, 0, 0, 0))
 
         # Calculate the position for the center-left alignment
         center_left_x = 0
