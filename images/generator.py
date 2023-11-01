@@ -4,10 +4,8 @@ import io
 import pandas as pd
 import os
 
-# Directory to store cached images
 cache_directory = "image_cache"
 
-# Create the cache directory if it doesn't exist
 os.makedirs(cache_directory, exist_ok=True)
 
 df = pd.read_csv("Erc1155_info.csv")
